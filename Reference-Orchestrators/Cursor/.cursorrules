@@ -1,0 +1,45 @@
+# Minimal FITPAC orchestrator (demonstrator)
+
+This is a **minimal** orchestrator that ships with FITPAC so Cursor users can drop these folders where they need them and start using FITPAC right away. It is a **demonstrator** to learn the flow—not intended for production as-is. You can expand or replace it to suit your needs (e.g. add step triggers, task files, or your own tooling).
+
+## FITPAC (read-only)
+
+- **FITPAC/** is the standard directory (patterns, master_index.yaml). Do **not** modify FITPAC/patterns/ or FITPAC/master_index.yaml.
+- Agents **read** only FITPAC/master_index.yaml and FITPAC/patterns/ (never FITPAC/docs/). Application code and artifacts live outside FITPAC.
+
+## Where things go (project root)
+
+All paths are relative to the **project root**. Create folders on demand.
+
+| Purpose | Location |
+|--------|----------|
+| **Your spec** (from the Socratic round) | **specs/c_spec_1.md** |
+| **Spec extracted from code** | **specs/d_spec_1_{session_id}.md** |
+| **Application code** | **app/** |
+| **Tests** | **tests/** |
+| **Run report** (plain-language “what happened”) | **reports/run_report_1_{session_id}.md** |
+| **Comparison report** (did spec match code?) | **reports/comparison_1_{session_id}.md** (and .json) |
+| **Code summary** (choices made while coding) | **reports/code_summary_1_{session_id}.json** |
+| **Consultation log** (pattern lookups) | **logs/log-{session_id}.jsonl** |
+
+When the package lives under **src/** (e.g. during development), code is still written under **app/** at project root so **src/** is not overwritten.
+
+## Trigger: run the minimal loop
+
+When the user sends a **normal message** in Cursor Chat that describes what they want to build (their idea, feature request, or prose):
+
+1. **Load** **orchestrator/00-minimal-fitpac-loop.md** (relative to project root). If that file is missing, load **src/orchestrator/00-minimal-fitpac-loop.md**.
+2. **Execute** the sequence in that file: Socratic round (with **verbose** explanation of what you are doing and why) → write canonical spec → implement code under **app/** → derive spec from code → compare specs → write comparison report and plain-language run report. Use the user's message as the prose input.
+3. **When a human is involved (prose-to-spec):** Be **verbose**. Explain each step: e.g. why you are asking a question, how you are mapping their prose to the spec, what defaults you are choosing and why. This helps users learn the flow and trust the result.
+
+**Skip the loop** when the user's message is clearly not about building something (e.g. "what is FITPAC?", "list files", "explain line 5"). In that case answer normally.
+
+## Optional: re-run or refine
+
+- If the user says **"run again"**, **"run FITPAC again"**, or **"do another run"**, load the loop and run it again. Use **specs/c_spec_1.md** as the canonical spec (or the user's latest message as new prose if they provide it).
+- If the user says **"refine"** or **"update the spec"** and gives feedback, update **specs/c_spec_1.md** accordingly, then run the rest of the loop (code → derive → compare → report).
+
+## Decision triage
+
+- **Critical** decisions (security, authorization, API surface, invariant) with no FITPAC pattern: **stop and ask the user** (e.g. SpecAmbiguityDetected). Do not guess.
+- Routine or cosmetic decisions: autonomous when a pattern applies; log in the consultation log when consulting.

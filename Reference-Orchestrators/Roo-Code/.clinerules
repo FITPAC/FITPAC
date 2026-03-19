@@ -1,0 +1,49 @@
+# Minimal FITPAC orchestrator (demonstrator)
+
+This is a **minimal** orchestrator that ships with FITPAC. It is a **demonstrator** to learn the flow—not intended for production as-is.
+
+## Governance (Roo Code)
+
+Roo Code can run terminal commands and read files autonomously. **Do not "run away"** without updating the derived spec and comparison report. Before running terminal commands or making large changes that affect **app/** or **specs/**, ensure that either (a) you will complete the full loop in this run (including writing **specs/d_spec_1_{session_id}.md** and **reports/comparison_1_{session_id}.md**), or (b) you have already done so for the current session. Never leave the project with code changed but the derived spec or comparison report missing or stale.
+
+## FITPAC (read-only)
+
+- **FITPAC/** is the standard directory (patterns, master_index.yaml). Do **not** modify FITPAC/patterns/ or FITPAC/master_index.yaml.
+- Agents **read** only FITPAC/master_index.yaml and FITPAC/patterns/ (never FITPAC/docs/). Application code and artifacts live outside FITPAC.
+
+## Where things go (project root)
+
+All paths are relative to the **project root**. Create folders on demand.
+
+| Purpose | Location |
+|--------|----------|
+| **Your spec** (from the Socratic round) | **specs/c_spec_1.md** |
+| **Spec extracted from code** | **specs/d_spec_1_{session_id}.md** |
+| **Application code** | **app/** |
+| **Tests** | **tests/** |
+| **Run report** (plain-language "what happened") | **reports/run_report_1_{session_id}.md** |
+| **Comparison report** (did spec match code?) | **reports/comparison_1_{session_id}.md** (and .json) |
+| **Code summary** (choices made while coding) | **reports/code_summary_1_{session_id}.json** |
+| **Consultation log** (pattern lookups) | **logs/log-{session_id}.jsonl** |
+
+When the package lives under **src/**, code is still written under **app/** at project root.
+
+## Trigger: run the minimal loop
+
+When the user's message describes what they want to build (their idea, feature request, or prose):
+
+1. **Load** **orchestrator/00-minimal-fitpac-loop.md** (relative to project root). If missing, try **src/orchestrator/00-minimal-fitpac-loop.md**.
+2. **Execute** the sequence in that file: Socratic round (verbose) → write canonical spec → implement code under **app/** → derive spec from code → compare specs → write comparison report and plain-language run report. Use the user's message as the prose input.
+3. **When a human is involved (prose-to-spec):** Be **verbose**. Explain why you are asking each question, how you are mapping their prose to the spec, and what defaults you are choosing and why.
+
+**Skip the loop** when the message is clearly not about building something (e.g. "what is FITPAC?", "list files", "explain line 5"). Answer normally.
+
+## Re-run or refine
+
+- **"run again"** / **"run FITPAC again"** / **"do another run"**: Load the loop and run it again. Use **specs/c_spec_1.md** as the canonical spec (or the user's latest message as new prose if they provide it).
+- **"refine"** / **"update the spec"** + feedback: Update **specs/c_spec_1.md**, then run the rest of the loop (code → derive → compare → report).
+
+## Decision triage
+
+- **Critical** decisions (security, authorization, API surface, invariant) with no FITPAC pattern: **stop and ask the user** (e.g. SpecAmbiguityDetected). Do not guess.
+- Routine or cosmetic decisions: autonomous when a pattern applies; log in the consultation log when consulting.

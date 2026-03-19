@@ -1,0 +1,364 @@
+# ============================================================
+# FITPAC Master Pattern Index (generated)
+# ============================================================
+# License: CC-BY-4.0
+# License URL: https://creativecommons.org/licenses/by/4.0/
+# Copyright Holder: Paul Roy and FITPAC Contributors
+# Attribution Note: Attribution required under CC BY 4.0.
+# PRECEDENCE: 1 = highest importance. When two patterns conflict, lower number wins.
+# LOADING RULE: Load THIS file only. Fetch pattern fragments on demand.
+# Regenerate with: python FITPAC/tools/generate_master_index.py
+# ============================================================
+
+precedence_hierarchy:
+  1: security
+  2: ontology
+  3: containment
+  4: boundaries
+  5: governance
+  6: satisfaction
+  7: evidence_harness
+  8: temporal
+  9: spec_code_roundtrip
+  10: resilience
+  11: deps_trust
+  12: schema_evolve
+  13: privacy_data_protection
+  14: compliance_audit
+  15: accessibility
+  16: obs
+  17: error_handling
+  18: api_design
+  19: messaging
+  20: data_persistence
+  21: networking
+  22: distributed_systems
+  23: configuration
+  24: budgets
+  25: ux
+  26: performance
+  27: deployment
+  28: ml_ai_systems
+  29: workflow_orchestration
+  30: internationalization
+pattern_map:
+  accessibility: patterns/accessibility.md
+  api_design: patterns/api_design.md
+  boundaries: patterns/boundary_contracts.md
+  budgets: patterns/budgets.md
+  compliance_audit: patterns/compliance_audit.md
+  configuration: patterns/configuration.md
+  containment: patterns/containment.md
+  data_persistence: patterns/data_persistence.md
+  deployment: patterns/deployment.md
+  deps_trust: patterns/deps_trust.md
+  distributed_systems: patterns/distributed_systems.md
+  error_handling: patterns/error_handling.md
+  evidence_harness: patterns/evidence_harness.md
+  governance: patterns/governance.md
+  internationalization: patterns/internationalization.md
+  messaging: patterns/messaging.md
+  ml_ai_systems: patterns/ml_ai_systems.md
+  networking: patterns/networking.md
+  obs: patterns/obs.md
+  ontology: patterns/domain_ontology.md
+  performance: patterns/performance.md
+  privacy_data_protection: patterns/privacy_data_protection.md
+  resilience: patterns/resilience.md
+  satisfaction: patterns/satisfaction_goals.md
+  schema_evolve: patterns/schema_evolve.md
+  security: patterns/security_trust.md
+  spec_code_roundtrip: patterns/spec_code_roundtrip.md
+  temporal: patterns/temporal.md
+  ux: patterns/ui_ux.md
+  workflow_orchestration: patterns/workflow_orchestration.md
+confidence_model:
+  baseline: 0.95
+  drop_conditions:
+    unknown_domain_term: -0.25
+    failed_test: -0.3
+    invariant_uncertain: -0.4
+    multi_valid_paths: -0.2
+    error_taxonomy_undefined: -0.2
+    retry_instability: -0.25
+    partial_effect_uncertain: -0.2
+    security_risk_detected: -0.4
+    invalid_state_transition: -0.35
+    missing_boundary_manifest: -0.2
+    deadline_missed: -0.25
+    concurrent_conflict: -0.3
+    budget_exceeded: -0.2
+    dependency_unpinned: -0.35
+    circuit_open: -0.2
+    speculation_without_source: -0.25
+    write_ownership_unspecified: -0.25
+    implicit_constraints_omitted: -0.25
+    transaction_boundary_uncertain: -0.3
+    clock_time_misuse: -0.2
+    resource_leak_risk: -0.25
+    tests_tautological_or_nondeterministic: -0.2
+    refactor_without_equivalence: -0.2
+    spec_ambiguity: -0.25
+    conflicting_mappings: -0.25
+    privilege_escalation: -0.35
+    irreversible_action: -0.3
+    trace_correlation_needed: -0.2
+    approval_required: -0.25
+    falsification_loop: -0.2
+    fragment_outdated: -0.2
+    missing_invariant: -0.3
+    partial_failure: -0.2
+    untyped_output_sink: -0.25
+    schema_version_mismatch: -0.25
+  consult_threshold: 0.9
+  recheck_after_resolution: true
+ambiguity_triggers:
+  unknown_domain_term:
+    patterns:
+    - ontology.p5
+    - ontology.p7
+    reason: Term has no Ontology Mapping Contract.
+  conflicting_mappings:
+    patterns:
+    - ontology.p5
+    - ontology.p6
+    reason: Same term maps differently across contexts.
+  invalid_state_transition:
+    patterns:
+    - ontology.p3
+    - satisfaction.p4
+    reason: Event triggers undefined (State, Event) transition.
+  missing_invariant:
+    patterns:
+    - ontology.p4
+    - ontology.p7
+    reason: Required invariant not found in Global Invariant Registry.
+  retry_instability:
+    patterns:
+    - boundaries.p2
+    - boundaries.p3
+    - boundaries.p4
+    - temporal.p1
+    - temporal.p5
+    reason: Retry loop detected or idempotency key missing.
+  partial_failure:
+    patterns:
+    - boundaries.p5
+    - satisfaction.p2
+    reason: Some dependencies failed; partial result detected.
+  security_risk_detected:
+    patterns:
+    - security.p1
+    - security.p2
+    - security.p5
+    - security.p6
+    - security.p7
+    reason: Potential invariant violation, capability minting risk, SSRF, secrets, or unsafe deserialization.
+  privilege_escalation:
+    patterns:
+    - security.p3
+    - ontology.p2
+    reason: Delegation chain depth exceeded or loop detected.
+  spec_ambiguity:
+    patterns:
+    - ontology.p7
+    - ontology.p8
+    - satisfaction.p1
+    reason: Spec is ambiguous or underspecified.
+  irreversible_action:
+    patterns:
+    - ux.p1
+    - ux.p2
+    reason: Action is irreversible; blast radius must be computed.
+  untyped_output_sink:
+    patterns:
+    - security.p4
+    reason: Output sink has no declared encoder.
+  missing_boundary_manifest:
+    patterns:
+    - boundaries.p1
+    reason: Boundary has no contract.yaml.
+  deadline_missed:
+    patterns:
+    - boundaries.p4
+    - temporal.p2
+    reason: Operation exceeded propagated deadline.
+  concurrent_conflict:
+    patterns:
+    - temporal.p1
+    - temporal.p4
+    reason: Race or duplicate write without idempotency key or lease.
+  trace_correlation_needed:
+    patterns:
+    - obs.p1
+    - obs.p3
+    reason: Need to correlate failure across spans or boundaries.
+  budget_exceeded:
+    patterns:
+    - budgets.p1
+    - budgets.p2
+    reason: Latency or cost over limit; or consult depth or iteration cap reached.
+  schema_version_mismatch:
+    patterns:
+    - schema_evolve.p1
+    - schema_evolve.p2
+    - schema_evolve.p3
+    - schema_evolve.p4
+    reason: Client version unsupported or deprecated.
+  dependency_unpinned:
+    patterns:
+    - deps_trust.p1
+    reason: Unpinned or untrusted dependency in use.
+  circuit_open:
+    patterns:
+    - resilience.p1
+    reason: Circuit breaker open; dependency call skipped.
+  approval_required:
+    patterns:
+    - governance.p1
+    - ux.p1
+    reason: Irreversible or high-risk action requires approval tier.
+  speculation_without_source:
+    patterns:
+    - containment.p1
+    - containment.p2
+    reason: Claim or speculative content without provenance.
+  falsification_loop:
+    patterns:
+    - evidence_harness.p2
+    reason: Falsification run; counterexample or property check.
+  fragment_outdated:
+    patterns: []
+    reason: Fragment deprecated or outdated; apply with reduced confidence and log.
+  write_ownership_unspecified:
+    patterns:
+    - ontology.p9
+    reason: Resource has no explicit write owner; risk of split-brain or duplicate writes.
+  implicit_constraints_omitted:
+    patterns:
+    - ontology.p10
+    - temporal.p1
+    reason: Idempotency, uniqueness, or ordering not declared.
+  transaction_boundary_uncertain:
+    patterns:
+    - temporal.p5
+    reason: External I/O inside transaction or exactly-once semantics unclear.
+  clock_time_misuse:
+    patterns:
+    - temporal.p6
+    reason: Local time, naive timestamps, or cross-service time comparison without contract.
+  resource_leak_risk:
+    patterns:
+    - temporal.p7
+    - resilience.p1
+    reason: Unbounded concurrency or resources not closed/released.
+  tests_tautological_or_nondeterministic:
+    patterns:
+    - evidence_harness.p3
+    - evidence_harness.p4
+    - evidence_harness.p5
+    reason: Tests mirror implementation, or rely on real time.
+  refactor_without_equivalence:
+    patterns:
+    - governance.p3
+    reason: Large refactor without behavioral equivalence or delete-path plan.
+  failed_test:
+    patterns:
+    - evidence_harness.p1
+    - evidence_harness.p2
+    - satisfaction.p2
+    reason: Test failed; consult scenario generation, falsification, and evidenced validation.
+  invariant_uncertain:
+    patterns:
+    - ontology.p4
+    - ontology.p7
+    reason: Invariant applicability unclear; consult Global Invariant Registry and Spec Ambiguity Handling.
+  multi_valid_paths:
+    patterns:
+    - satisfaction.p1
+    - ontology.p7
+    - ontology.p8
+    reason: Multiple valid implementation paths; consult goals and spec ambiguity/proposal.
+  error_taxonomy_undefined:
+    patterns:
+    - boundaries.p1
+    - boundaries.p2
+    reason: Error taxonomy missing or unclear; consult boundary contract and error taxonomy.
+  partial_effect_uncertain:
+    patterns:
+    - boundaries.p5
+    - satisfaction.p2
+    reason: Partial effect or side-effect outcome unclear.
+consultation_protocol:
+  trigger:
+  - Confidence drops at or below consult_threshold (0.90).
+  - Any test fails.
+  - An ambiguity_trigger condition is detected.
+  - An invariant violation is detected.
+  - Multiple equally valid implementation paths exist.
+  steps:
+    1: Compute confidence using drop_conditions.
+    2: 'If confidence <= 0.90: enter Reference Mode.'
+    3: Classify the ambiguity using ambiguity_triggers.
+    4: Load ONLY the fragments listed for that trigger.
+    5: Apply the decision logic from the fragment.
+    6: Emit a FITPAC_CONSULTATION_EVENT_V1 (see telemetry).
+    7: Append the event to the audit log (see audit_log).
+    8: 'Recheck confidence. If still <= 0.90: repeat from step 3.'
+    9: 'If unresolvable: emit SpecAmbiguityDetected or SpecProposal (ontology.p7).'
+  minimal_loading_rule:
+  - Load only the fragment(s) listed in ambiguity_triggers.
+  - Do NOT load full pattern files.
+  - If a trigger maps to an empty fragment list, emit a consultation event and proceed with reduced confidence.
+telemetry:
+  consultation_required: true
+  emit_on:
+  - ambiguity_detected
+  - invariant_violation
+  - test_failure
+  - multi_path_decision
+  - retry_instability
+  - security_risk
+  report_format:
+    header: FITPAC_CONSULTATION_EVENT_V1
+    plain_english_required: All reasoning fields MUST be in plain English for full auditability.
+    fields:
+      inflection_point: Plain English. What happened that reduced confidence?
+      ambiguity_type: Which ambiguity_trigger matched?
+      trigger_rule: Which key in ambiguity_triggers fired?
+      pattern_selected: Which file and fragment?
+      fragment_loaded: Exact section ID (e.g., boundaries.p4)
+      reasoning_delta: Plain English. What changed in the decision space after consulting the pattern?
+      resolution_applied: Plain English. What rule or fix was applied?
+      resolution_result: Solved | Partial | Unsolved
+      confidence_before: 0.0–1.0
+      confidence_after: 0.0–1.0
+      tokens_loaded_estimate: Rough token count of fragments loaded
+      contributing_factors: 'Array of { condition: string, delta: float | null }.'
+  suppress_if:
+  - Confidence never dropped below threshold.
+  - No ambiguity trigger fired.
+  - No test failed.
+audit_log:
+  enabled: true
+  file: .fitpac_audit.jsonl
+  format: jsonl
+  entry_schema:
+    timestamp: ISO 8601
+    session_id: Unique per agent session
+    inflection_point: Plain English. What happened that triggered consultation?
+    ambiguity_type: string
+    trigger_rule: string
+    fragment_loaded: string
+    resolution_applied: Plain English. What rule or fix was applied?
+    resolution_result: Solved | Partial | Unsolved
+    confidence_before: float
+    confidence_after: float
+    tokens_loaded_estimate: int
+    contributing_factors: 'Array of { condition: string, delta: float | null }.'
+    reasoning: 'Plain English. MUST capture at least: trigger condition(s) observed, fragment IDs consulted, chosen resolution, brief justification for alternatives rejected when applicable, and links or references to evidentiary artifacts when those inform the decision (RFC-0004 §7).'
+  rules:
+  - Append only. Never overwrite or delete entries.
+  - One JSON object per line.
+  - Emit one entry per consultation event.
+  - Reasoning MUST be in plain English.
