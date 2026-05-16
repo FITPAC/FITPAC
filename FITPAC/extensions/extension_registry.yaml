@@ -1,0 +1,34 @@
+# FITPAC extension registry (RFC-0006)
+# Merged into master_index.yaml by FITPAC/tools/generate_master_index.py.
+# Third-party tools: see FITPAC/docs/reference/extension-registry.md
+
+extensions:
+  fitpac.prose_compiler:
+    semver: "0.2.0"
+    manifest: extensions/fitpac_prose_compiler/fitpac_prose_compiler_manifest.yaml
+    pack_root: extensions/fitpac_prose_compiler
+    description: "Prose → clause → obligation → normalization → binding → primitive graph"
+    pattern_map:
+      fitpac.prose_compiler: extensions/fitpac_prose_compiler/patterns/fitpac_prose_compiler.md
+    pipeline_fragments:
+      - fitpac.prose_compiler.p1
+      - fitpac.prose_compiler.p2
+      - fitpac.prose_compiler.p3
+      - fitpac.prose_compiler.p4
+      - fitpac.prose_compiler.p5
+      - fitpac.prose_compiler.p6
+    default_compiler_profile_id: fitpac.prose_compiler.compiler_profile_v0
+    precedence_ordinal: 31
+    ambiguity_triggers:
+      fitpac_prose_compiler_low_clause_confidence:
+        patterns:
+          - fitpac.prose_compiler.p1
+        reason: Prose clause role unknown or below fitpac.prose_compiler compiler profile confidence threshold.
+      fitpac_prose_compiler_binding_rejected:
+        patterns:
+          - fitpac.prose_compiler.p4
+        reason: Normalized obligation failed static binding contract.
+      fitpac_prose_compiler_open_resolution:
+        patterns:
+          - fitpac.prose_compiler.p6
+        reason: Open resolution artifact blocks compiler-grade export.

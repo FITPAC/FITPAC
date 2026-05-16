@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/primitive_graph.schema.json",
+  "title": "fitpac.prose_compiler:primitive_graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "pack_version",
+    "profile_id",
+    "doc_ref",
+    "nodes",
+    "edges",
+    "resolution_artifacts",
+    "compiler_grade_ready"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "pack_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "profile_id": { "type": "string", "minLength": 1 },
+    "doc_ref": { "$ref": "common.definitions.json#/$defs/docRef" },
+    "compiler_grade_ready": { "type": "boolean" },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/graphNode" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/graphEdge" }
+    },
+    "resolution_artifacts": {
+      "type": "array",
+      "items": { "$ref": "resolution_artifact.schema.json" }
+    },
+    "normalized_obligations": {
+      "type": "array",
+      "items": { "$ref": "normalized_obligation.schema.json" }
+    },
+    "binding_outcomes": {
+      "type": "array",
+      "items": { "$ref": "binding_outcome.schema.json" }
+    }
+  },
+  "$defs": {
+    "graphNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "draft"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "spine_primitive",
+            "supporting_clause",
+            "supporting_frame",
+            "normalized_obligation",
+            "draft_bundle"
+          ]
+        },
+        "draft": { "type": "boolean" },
+        "compiler_grade_ready": { "type": "boolean" },
+        "ontology_primitive_id": {
+          "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        },
+        "binding_outcome_id": {
+          "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        },
+        "clause_id": { "type": "string" },
+        "frame_id": { "type": "string" },
+        "normalized_obligation_id": { "type": "string" },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "span_ids": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "frame_ids": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "kind": { "const": "spine_primitive" } },
+            "required": ["kind"]
+          },
+          "then": {
+            "required": ["ontology_primitive_id", "draft"],
+            "properties": {
+              "ontology_primitive_id": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ]
+    },
+    "graphEdge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "from_node_id",
+        "to_node_id",
+        "kind",
+        "committed",
+        "provenance"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "from_node_id": { "type": "string", "minLength": 1 },
+        "to_node_id": { "type": "string", "minLength": 1 },
+        "kind": { "$ref": "common.definitions.json#/$defs/edgeKind" },
+        "committed": {
+          "type": "boolean",
+          "description": "true = exported committed edge; false = suggested / QA-only."
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "span_ids": { "type": "array", "items": { "type": "string" } },
+            "frame_ids": { "type": "array", "items": { "type": "string" } },
+            "user_resolution_id": { "type": "string" }
+          },
+          "description": "At least one provenance pointer required; enforced additionally in validators."
+        }
+      }
+    }
+  }
+}

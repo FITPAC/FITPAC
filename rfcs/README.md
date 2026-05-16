@@ -30,6 +30,7 @@ The **`FITPAC/master_index.yaml`** acts as the runtime manifest of the standard.
 | [RFC-0003](RFC-0003-FITPAC-Primitives-and-Spec-Schema.md) | Primitives and Spec Schema | **Final** | The grammar of Intent (REQUIRE, RULE, EMIT). |
 | [RFC-0004](RFC-0004-FITPAC-Master-Index-and-Consultation.md) | Master Index and Consultation | **Final** | Runtime logic and consultation protocol. |
 | [RFC-0005](RFC-0005-FITPAC-Patterns-and-Triggers.md) | Patterns and Triggers | **Final** | Taxonomy of AI coding behaviors. |
+| [RFC-0006](RFC-0006-FITPAC-prose-compiler-extension.md) | `fitpac.prose_compiler` extension | **Proposed** | Prose compiler IR, graphs, and resolution artifacts (additive pack). |
 
 ---
 

@@ -1,0 +1,42 @@
+{
+  "id": "g_bad_inv",
+  "pack_version": "0.1.0",
+  "profile_id": "fitpac.prose_compiler.compiler_profile_v0",
+  "doc_ref": "doc://fixture/bad_inv",
+  "compiler_grade_ready": true,
+  "nodes": [
+    {
+      "id": "n1",
+      "kind": "spine_primitive",
+      "draft": false,
+      "ontology_primitive_id": "Constraint.must_hold",
+      "compiler_grade_ready": true
+    }
+  ],
+  "edges": [],
+  "resolution_artifacts": [],
+  "normalized_obligations": [
+    {
+      "id": "norm1",
+      "frame_id": "f1",
+      "doc_ref": "doc://fixture/bad_inv",
+      "normalization_status": "resolved",
+      "polarity": "affirm",
+      "binding_slots": {
+        "action_sense_id": "act.does_not_exist",
+        "actor_normalized": "actor.system",
+        "object_kind": "entity_kind.api_response",
+        "object_entity_id": null
+      }
+    }
+  ],
+  "binding_outcomes": [
+    {
+      "id": "bo1",
+      "outcome": "bound",
+      "normalized_obligation_id": "norm1",
+      "ontology_primitive_id": "Constraint.must_hold",
+      "telemetry": { "failure_mode": "none" }
+    }
+  ]
+}

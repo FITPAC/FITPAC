@@ -124,6 +124,16 @@ Extension rules:
 2. New entries MUST be documented in that module’s pattern file and SHOULD be summarized in its own \"Trigger extensions\" section.
 3. Extensions MUST NOT redefine the meaning of a core (unnamespaced) trigger; they can only refine or add.
 
+### 4.1 `fitpac.prose_compiler` extension triggers (RFC-0006)
+
+Module key: `fitpac.prose_compiler`. Used by `FITPAC/extensions/fitpac_prose_compiler/patterns/fitpac_prose_compiler.md` and `master_index.yaml` ambiguity triggers.
+
+| Trigger | Meaning |
+|---------|---------|
+| `fitpac.prose_compiler:low_clause_confidence` | Clause role is `unknown` or confidence is below the active compiler profile `clause_confidence_min`. |
+| `fitpac.prose_compiler:binding_rejected` | Static binding contract rejected a normalized obligation (telemetry `failure_mode` set). |
+| `fitpac.prose_compiler:open_resolution` | A `resolution_artifact` with `resolution_status: open` blocks compiler-grade export for the slice. |
+
 ## 5. Usage in rule metadata
 
 - `triggers` entries in pattern YAML MUST be drawn from:

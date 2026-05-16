@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/clause.schema.json",
+  "title": "fitpac.prose_compiler:clause",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "role", "confidence", "reason", "source_span", "doc_ref"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "role": { "$ref": "common.definitions.json#/$defs/clauseRole" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "reason": { "type": "string" },
+    "source_span": { "$ref": "common.definitions.json#/$defs/sourceSpan" },
+    "doc_ref": { "$ref": "common.definitions.json#/$defs/docRef" },
+    "structural_context": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Section depth, block type, list/table/prose hints, etc."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/binding_outcome.schema.json",
+  "title": "fitpac.prose_compiler:binding_outcome",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "outcome", "normalized_obligation_id", "telemetry"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "outcome": { "$ref": "common.definitions.json#/$defs/bindingOutcomeKind" },
+    "normalized_obligation_id": { "type": "string", "minLength": 1 },
+    "ontology_primitive_id": {
+      "description": "Target id from classification ontology / spine reference (opaque string).",
+      "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+    },
+    "telemetry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["failure_mode"],
+      "properties": {
+        "failure_mode": {
+          "type": "string",
+          "description": "Closed vocabulary in validators; examples: wrong_actor, unknown_action_sense, object_out_of_scope, condition_unparseable, scope_ambiguous."
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "partial_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "compiler_grade_ready": { "type": "boolean" },
+        "draft_spine_emission": { "type": "boolean" }
+      }
+    }
+  }
+}

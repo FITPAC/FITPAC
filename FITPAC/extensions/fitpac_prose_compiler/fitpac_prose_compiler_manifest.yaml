@@ -1,0 +1,52 @@
+extension:
+  id: fitpac.prose_compiler
+  semver: 0.2.0
+  created_at_utc: '2026-05-15T00:00:00Z'
+  description: "Prose \u2192 clause \u2192 obligation \u2192 normalization \u2192\
+    \ binding \u2192 primitive graph (additive FITPAC extension)."
+normative_artifacts:
+  schemas:
+  - path: docs/reference/fitpac_prose_compiler/schema/common.definitions.json
+    sha256: d1d55a6e88d95f20c415e738a14b9cc31d57c61c3cc0248869b2406f53efcda7
+  - path: docs/reference/fitpac_prose_compiler/schema/clause.schema.json
+    sha256: 243d8b7b26b6400befa096eb4c2bbcd9f57221c6f6ba309a28adf168b1a74c86
+  - path: docs/reference/fitpac_prose_compiler/schema/obligation_frame.schema.json
+    sha256: d95d09827191142dcafe0246e41b5efe3d099cec324e1750f0ddb7fc2a5ab4e8
+  - path: docs/reference/fitpac_prose_compiler/schema/normalized_obligation.schema.json
+    sha256: 02f1b9cf4abdac49831a987b571431e4a8039e885e0967b50e8f5c375486c28d
+  - path: docs/reference/fitpac_prose_compiler/schema/binding_outcome.schema.json
+    sha256: 6cbcfd035536bf3ad426fe612fdab463de5915c387b16b4ee770a06adbcc8cc0
+  - path: docs/reference/fitpac_prose_compiler/schema/suggested_edge.schema.json
+    sha256: e9bdd8f5c0f7620713c8385c3eca2335cc8b634353d498bf1358eed09c65af5d
+  - path: docs/reference/fitpac_prose_compiler/schema/resolution_artifact.schema.json
+    sha256: ac9c517dbb41fadfdeb805814408961cc0deae07ccb0c05ee4d0e78d4edd0475
+  - path: docs/reference/fitpac_prose_compiler/schema/primitive_graph.schema.json
+    sha256: af3ddf7a775310b6e5f88d337f423a5efee0d14515aecb442790ae3c27033072
+  inventories:
+  - path: docs/reference/fitpac_prose_compiler/data/v0.1.0/action_sense_inventory.yaml
+    sha256: bb04fc52208f53ec508f117028722e6ef5a9d3d0d7074a26336ebf06eef68d7a
+  - path: docs/reference/fitpac_prose_compiler/data/v0.1.0/actor_inventory.yaml
+    sha256: 17b1f662ce644d8e9f2ce53316f9e38052103656a2e37a77b51a85ce880d7b50
+  - path: docs/reference/fitpac_prose_compiler/data/v0.1.0/entity_kind_inventory.yaml
+    sha256: b918ac142f406c4f4dce9c9db0aaabd21bad8d8cae8ce55a4ba7963ab4011bda
+  binding_contracts:
+  - path: docs/reference/fitpac_prose_compiler/binding/binding_contract_v0.yaml
+    sha256: 458b307fca690c45b643e390857a97ce77e4e01727fe23a7f7b3143ec9816372
+  profiles:
+  - path: docs/reference/fitpac_prose_compiler/profiles/fitpac.prose_compiler.compiler_profile_v0.yaml
+    sha256: deeafe262114ac9ddec795f0709cbfa9617b46a896e51f06e5f13155355feaf5
+  ontology:
+  - path: docs/reference/fitpac_classification_ontology.v0.1.0.json
+    sha256: 183803a9e5781c09c4937b681d5a930bf8120a9fb1b8499e551fddc4b11dbc31
+  patterns:
+  - path: patterns/fitpac_prose_compiler.md
+    sha256: bfdc96805169270794736dc72219841b36ffc0f88f0f9826213cf622d123181a
+upstream_fitpac_core:
+  note: Read-only references; do not vendor or modify core FITPAC normative files.
+  spine_doc: FITPAC/00_primitive_spine.md
+  rfcs:
+  - rfcs/RFC-0001-FITPAC-1.0.0.md
+  - rfcs/RFC-0002-FITPAC-Profile-Specification.md
+  - rfcs/RFC-0003-FITPAC-Primitives-and-Spec-Schema.md
+  - rfcs/RFC-0004-FITPAC-Master-Index-and-Consultation.md
+  - rfcs/RFC-0005-FITPAC-Patterns-and-Triggers.md

@@ -1,0 +1,62 @@
+{
+  "id": "g_open_res",
+  "pack_version": "0.1.0",
+  "profile_id": "fitpac.prose_compiler.compiler_profile_v0",
+  "doc_ref": "doc://fixture/open_res",
+  "compiler_grade_ready": true,
+  "nodes": [
+    {
+      "id": "n1",
+      "kind": "spine_primitive",
+      "draft": false,
+      "ontology_primitive_id": "Constraint.must_hold",
+      "compiler_grade_ready": true
+    }
+  ],
+  "edges": [],
+  "resolution_artifacts": [
+    {
+      "id": "ra1",
+      "span": { "span_id": "s1", "start_offset": 0, "end_offset": 3 },
+      "section_ref": "1",
+      "doc_ref": "doc://fixture/open_res",
+      "partial_frame": null,
+      "failure_mode": "low_confidence_clause",
+      "resolution_status": "open",
+      "resolver": null,
+      "resolved_by_ledger_id": null,
+      "suggested_edges": [
+        {
+          "from_node_id": "n1",
+          "to_node_id": "n1",
+          "kind": "depends_on",
+          "rationale": "suggested only"
+        }
+      ]
+    }
+  ],
+  "normalized_obligations": [
+    {
+      "id": "norm1",
+      "frame_id": "f1",
+      "doc_ref": "doc://fixture/open_res",
+      "normalization_status": "resolved",
+      "polarity": "affirm",
+      "binding_slots": {
+        "action_sense_id": "act.must_provide",
+        "actor_normalized": "actor.system",
+        "object_kind": "entity_kind.api_response",
+        "object_entity_id": null
+      }
+    }
+  ],
+  "binding_outcomes": [
+    {
+      "id": "bo1",
+      "outcome": "bound",
+      "normalized_obligation_id": "norm1",
+      "ontology_primitive_id": "Constraint.must_hold",
+      "telemetry": { "failure_mode": "none" }
+    }
+  ]
+}

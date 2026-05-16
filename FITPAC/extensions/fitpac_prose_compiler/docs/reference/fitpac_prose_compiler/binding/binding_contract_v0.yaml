@@ -1,0 +1,32 @@
+# References ontology primitive ids as opaque strings — do not fork FITPAC spine.
+version: "0.1.0"
+ontology_reference:
+  description: "Pinned classification ontology for binding primitive ids."
+  path: "FITPAC/extensions/fitpac_prose_compiler/docs/reference/fitpac_classification_ontology.v0.1.0.json"
+  note: "Primitive keys below align with rule_statement and domain_object roles in the ontology."
+primitives:
+  Constraint.must_hold:
+    required_slots:
+      - action_sense_id
+      - actor_normalized
+      - object_kind
+    optional_slots:
+      - object_entity_id
+      - polarity
+    forbidden_cooccurrences: []
+  Policy.access_rule:
+    required_slots:
+      - action_sense_id
+      - actor_normalized
+      - object_kind
+    optional_slots:
+      - polarity
+    forbidden_cooccurrences: []
+  Transformation.record:
+    required_slots:
+      - action_sense_id
+      - actor_normalized
+    optional_slots:
+      - object_kind
+      - object_entity_id
+    forbidden_cooccurrences: []

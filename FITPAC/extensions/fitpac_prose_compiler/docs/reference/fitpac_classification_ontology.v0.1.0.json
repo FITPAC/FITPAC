@@ -1,0 +1,60 @@
+{
+  "ontology_version": "0.1.0",
+  "title": "FITPAC classification ontology (machine)",
+  "description": "Deterministic typing policy for prose→feature ledger. Normative human commentary: fitpac_classification_ontology_v0.1.0.md",
+  "enums": {
+    "ontological_role": [
+      "domain_object",
+      "ui_artifact",
+      "interaction_event",
+      "external_actor",
+      "system_actor",
+      "rule_statement",
+      "derived_view",
+      "scope_qualifier"
+    ],
+    "boundary": [
+      "internal",
+      "boundary_input",
+      "boundary_output",
+      "cross_boundary"
+    ],
+    "state_behavior": ["stateful", "stateless", "event_only"],
+    "control_semantics": ["permission", "invariant", "procedure", "none"]
+  },
+  "boundary_allowlist_by_role": {
+    "domain_object": ["internal"],
+    "ui_artifact": ["internal", "boundary_output", "cross_boundary"],
+    "interaction_event": ["boundary_input", "cross_boundary"],
+    "external_actor": ["internal"],
+    "system_actor": ["internal"],
+    "rule_statement": ["internal"],
+    "derived_view": ["internal", "boundary_output"],
+    "scope_qualifier": ["internal"]
+  },
+  "allowed_primitives_by_role": {
+    "domain_object": ["Entity", "Relation", "Context", "Constraint", "Transformation", "Policy"],
+    "ui_artifact": ["Boundary", "Projection"],
+    "interaction_event": ["Boundary", "Transaction"],
+    "external_actor": ["Entity", "Relation"],
+    "system_actor": ["Authority", "Capability"],
+    "rule_statement": ["Constraint", "Policy", "Transformation", "Transaction"],
+    "derived_view": ["Projection"],
+    "scope_qualifier": ["Context"]
+  },
+  "forbidden_primitives_by_role": {
+    "ui_artifact": ["Entity", "Authority"],
+    "interaction_event": ["Transformation"],
+    "external_actor": ["Authority"],
+    "scope_qualifier": ["Entity", "Authority"],
+    "derived_view": ["Entity", "Transformation"]
+  },
+  "disambiguation_hints": [
+    "Menu/UI: ontological_role ui_artifact; primitives Boundary or Projection — not Entity.",
+    "User input: interaction_event + boundary_input → Boundary (not Transformation).",
+    "Players/users: external_actor → Entity and/or Relation — not Authority.",
+    "Scope qualifiers (easy, online): scope_qualifier → Context — not Entity or Authority.",
+    "Game rules: rule_statement + control_semantics invariant → Constraint (not Entity or Transformation).",
+    "Win overlays / smiley / growing animations on screen: ui_artifact → Projection (or Boundary for static chrome) — not Transformation; ui_artifact allows only Boundary and Projection."
+  ]
+}

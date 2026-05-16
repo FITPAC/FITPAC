@@ -12,131 +12,141 @@ manifest:
 
 normative_references:
   rfcs:
-    - path: rfcs/RFC-0001-FITPAC-1.0.0.md
-      version: 1.0.0
-      sha256: 73f564998c4642196ecd25627760feeac0623360278ed4d65e841b0ad4f10196
-    - path: rfcs/RFC-0002-FITPAC-Profile-Specification.md
-      version: 1.0.0
-      sha256: 6579ab7896a159d771454b3465d23b161ad48119c9b7a9be6cde09d6c3830f9a
-    - path: rfcs/RFC-0003-FITPAC-Primitives-and-Spec-Schema.md
-      version: 1.0.0
-      sha256: 7fc79835543a741883b90720c204fc8b5d12dd17a843742bff41412273117f94
-    - path: rfcs/RFC-0004-FITPAC-Master-Index-and-Consultation.md
-      version: 1.0.0
-      sha256: ad35acde14ca93e6f019551d965b1ca6a9e58bc98e8ecfcf5a4fd694661814c0
-    - path: rfcs/RFC-0005-FITPAC-Patterns-and-Triggers.md
-      version: 1.0.0
-      sha256: be6b5e9f2f2ca7b2f9df1fe1c21d4a2701b48be64083a801530b5a6e27dcd0fe
-
+  - path: rfcs/RFC-0001-FITPAC-1.0.0.md
+    version: 1.0.0
+    sha256: 73f564998c4642196ecd25627760feeac0623360278ed4d65e841b0ad4f10196
+  - path: rfcs/RFC-0002-FITPAC-Profile-Specification.md
+    version: 1.0.0
+    sha256: 6579ab7896a159d771454b3465d23b161ad48119c9b7a9be6cde09d6c3830f9a
+  - path: rfcs/RFC-0003-FITPAC-Primitives-and-Spec-Schema.md
+    version: 1.0.0
+    sha256: 7fc79835543a741883b90720c204fc8b5d12dd17a843742bff41412273117f94
+  - path: rfcs/RFC-0004-FITPAC-Master-Index-and-Consultation.md
+    version: 1.0.0
+    sha256: ad35acde14ca93e6f019551d965b1ca6a9e58bc98e8ecfcf5a4fd694661814c0
+  - path: rfcs/RFC-0005-FITPAC-Patterns-and-Triggers.md
+    version: 1.0.0
+    sha256: be6b5e9f2f2ca7b2f9df1fe1c21d4a2701b48be64083a801530b5a6e27dcd0fe
+  - path: rfcs/RFC-0006-FITPAC-prose-compiler-extension.md
+    version: 0.2.0
+    sha256: c3062dd2cfa76c6196534839ed0eb945a257879e091a240735b3ecb49f8ec524
   core:
-    - path: FITPAC/00_primitive_spine.md
-      version: 1.0.0
-      sha256: 6c25c0f6ec7af1293fce5b21bd7357a5fc7384a04315b1258e5ba27993df4046
-    - path: FITPAC/master_index.yaml
-      sha256: bf956ed46d14c1ba0194c709ed8049f1c2664da7b0ea24fde778a1b190c8c3b4
-
+  - path: FITPAC/00_primitive_spine.md
+    version: 1.0.0
+    sha256: 6c25c0f6ec7af1293fce5b21bd7357a5fc7384a04315b1258e5ba27993df4046
+  - path: FITPAC/master_index.yaml
+    sha256: d3baa62f50078d48d71570d113a6ccc7f2c75757996e6b06f5f14b37e860a1b3
   reference_docs:
-    - path: FITPAC/docs/reference/spec-schema.md
-      sha256: cc5c3d294bfc18556affd52949dce4f1bb0f27c1b78d060b0e5c52b3c66babad
-    - path: FITPAC/docs/reference/master-index.md
-      sha256: 026415c6284e0b8949a72d5bfe4bd11ceb2c7db5d9278f860da5c4407acfc39c
-    - path: FITPAC/docs/reference/pattern-index.md
-      sha256: a17f7491fa30819f45dfa0fcf59eebb7d3a470ff2ae7598c167201204c8fcd07
-    - path: FITPAC/docs/reference/trigger-taxonomy.md
-      sha256: 28c9165afe71f7b1436324a1bd341519a0cd9eda857a59d06b202e631236039a
-    - path: FITPAC/docs/reference/governance-versioning.md
-      sha256: 95cdaaf6d9252b3238962cb4449b07a2da49328f7ef96fbb14ae63e743801c34
-    - path: FITPAC/docs/reference/indexing-architecture.md
-      sha256: 4e333b8e4f70a39edc9ad6846c180d4a146a34cd350e5765080fad94d1a2434b
-
+  - path: FITPAC/docs/reference/spec-schema.md
+    sha256: cc5c3d294bfc18556affd52949dce4f1bb0f27c1b78d060b0e5c52b3c66babad
+  - path: FITPAC/docs/reference/master-index.md
+    sha256: 9b514454d68f7d74bb9bec759322714626d88306c8d835111e056ddab6753125
+  - path: FITPAC/docs/reference/pattern-index.md
+    sha256: 9edc6f013267f16a6c1b7838fbeb2c4085479640cb6891e4e3648c3d3ee68eed
+  - path: FITPAC/docs/reference/trigger-taxonomy.md
+    sha256: a51b7e81972b13e9a014f7d1eb55cc052cd784a5d343602777e5ed28acdfedc7
+  - path: FITPAC/docs/reference/governance-versioning.md
+    sha256: 95cdaaf6d9252b3238962cb4449b07a2da49328f7ef96fbb14ae63e743801c34
+  - path: FITPAC/docs/reference/indexing-architecture.md
+    sha256: 4e333b8e4f70a39edc9ad6846c180d4a146a34cd350e5765080fad94d1a2434b
+  - path: FITPAC/docs/reference/extension-registry.md
+    sha256: a3f784afe8422354bcfc751dcafad90519b3c9124328cf2f1186f5b4893070e2
+  - path: FITPAC/extensions/extension_registry.yaml
+    sha256: 8799fcb0d30903fe0ebd1a7bea9f835606669be9c1cbe9e2774bad0a887c8b3f
   patterns:
-    - path: FITPAC/patterns/accessibility.md
-      version: 1.0.0
-      sha256: 95cf5c67811c663631391e049e5a217b32ea2adac12e64d06429982f8da3e401
-    - path: FITPAC/patterns/api_design.md
-      version: 1.0.0
-      sha256: 51999fcd9f4f9e917d0587b324bd40b151a972d7200f32b221ad6d2043f711bc
-    - path: FITPAC/patterns/boundary_contracts.md
-      version: 1.0.0
-      sha256: b65fa35b5c5efa0c3bf88251ea9640ed010dc93b64c3ed9758e1607b8a63dcd5
-    - path: FITPAC/patterns/budgets.md
-      version: 1.0.0
-      sha256: faa5cde6df7dcdd6393b822909af502989ce4140c782db5656d0ff27a0d4939f
-    - path: FITPAC/patterns/compliance_audit.md
-      version: 1.0.0
-      sha256: 952f8adf49a455f8f582e7a26c3c883b58a51feeda3dcdff6f6f4112b67489ab
-    - path: FITPAC/patterns/configuration.md
-      version: 1.0.0
-      sha256: e6d15d4bc1f6d4a67ab23ef77aeeea993c5e60ee57c6319abf4962dd5d628f2e
-    - path: FITPAC/patterns/containment.md
-      version: 1.0.0
-      sha256: 852a559799faaa87db1df1eecd1735e76b2eff9d52fc99f087c06d4986be4441
-    - path: FITPAC/patterns/data_persistence.md
-      version: 1.0.0
-      sha256: fb6748a20c4aba5cd757ad713741a90a756853380b124135611ae7109524b0e7
-    - path: FITPAC/patterns/deployment.md
-      version: 1.0.0
-      sha256: a127ace2ccec5b3faecbabd8622e1bc7124d344dec74c53ad68bd6e5425c8578
-    - path: FITPAC/patterns/deps_trust.md
-      version: 1.0.0
-      sha256: 9d8130843fcc0120783dc50bf6674ee0b9f8dd8a46db2eed933f8f7437f90204
-    - path: FITPAC/patterns/distributed_systems.md
-      version: 1.0.0
-      sha256: c2c3c29b06e3cfe1c1ad393a58069728ff0df9e8cd8cdb2526c1a11fa194b912
-    - path: FITPAC/patterns/domain_ontology.md
-      version: 1.0.0
-      sha256: b30097142bb3608a8a93616c0c6db71d8192515c883e8da15a7a6af495aab774
-    - path: FITPAC/patterns/error_handling.md
-      version: 1.0.0
-      sha256: f339fe6cd1fcee6a57e5c8f44e97a912ec88da3dd494ebf14ca28a2fe1703597
-    - path: FITPAC/patterns/evidence_harness.md
-      version: 1.0.0
-      sha256: 07fde1372ab16bb5e45ae325bd58a3948503c289c405ef9050f31b616ebdff50
-    - path: FITPAC/patterns/governance.md
-      version: 1.0.0
-      sha256: 6cea2d35d722d0cfcc830a6aa49a04a96ead85274fb080933ddd186fdb955023
-    - path: FITPAC/patterns/internationalization.md
-      version: 1.0.0
-      sha256: b074a90150219965df1c2831a73543fe3d20bb652239de26d7ac85c4d2dc8fb8
-    - path: FITPAC/patterns/messaging.md
-      version: 1.0.0
-      sha256: 2fecceae410e779d9efb9a3c64191d89fc95f896a69c3caf44edbb9c4627c770
-    - path: FITPAC/patterns/ml_ai_systems.md
-      version: 1.0.0
-      sha256: b413a24e3a92376184fe1f8d2f611d47085a16cbec6a3ca5fb4157dcf090e2bd
-    - path: FITPAC/patterns/networking.md
-      version: 1.0.0
-      sha256: 85f09019231366118c30ac08e34d8972b89f0317ab464d51803b1eece00d0b75
-    - path: FITPAC/patterns/obs.md
-      version: 1.0.0
-      sha256: b68a1777589c2974ae33e38c709f774d6accbcadfe876c898c233099d5bb9ceb
-    - path: FITPAC/patterns/performance.md
-      version: 1.0.0
-      sha256: e65f9eea48a40e73f227ef0fe614f7f31932039fa0dc8c3f83b45df72cf560c6
-    - path: FITPAC/patterns/privacy_data_protection.md
-      version: 1.0.0
-      sha256: 2c329fb7662c7c7e831990177fd15085c2c69eb48c00c6bfe891544fa85d95d7
-    - path: FITPAC/patterns/resilience.md
-      version: 1.0.0
-      sha256: 51f781768147441d3d453406b07f21b4541b3499b149a3d68def929593ff2a21
-    - path: FITPAC/patterns/satisfaction_goals.md
-      version: 1.0.0
-      sha256: 0c759a51c078e2bd7fb7772483dc2512f19b145667c10bfe1a44a9491197d7bf
-    - path: FITPAC/patterns/schema_evolve.md
-      version: 1.0.0
-      sha256: df7b3fa5b200aaa11bc2d95f104684f08a767d2273ad5157dc4424c699ab3c5d
-    - path: FITPAC/patterns/security_trust.md
-      version: 1.0.0
-      sha256: 42f78ec6d1d83810f27d7858a94fbf132dddbd8497627c02d00be62d0048b0a2
-    - path: FITPAC/patterns/spec_code_roundtrip.md
-      version: 1.0.0
-      sha256: b0961a02d00f4ba3127d62ca676de7f0405241f7965fa6178225353157ef5ac9
-    - path: FITPAC/patterns/temporal.md
-      version: 1.0.0
-      sha256: 88ae6d482794eeead2ed01ec29dcc907455d6538db08ca5582fd3d910763e3b9
-    - path: FITPAC/patterns/ui_ux.md
-      version: 1.0.0
-      sha256: f2762f4cba1770167dcca25b6ce49d4d502ac0d845aeaa77fb02b820923bef3e
-    - path: FITPAC/patterns/workflow_orchestration.md
-      version: 1.0.0
-      sha256: ab1c1455cf0ce2f95a3de00fe5b301f09bc072e311b72c88376685cb2fc5248e
+  - path: FITPAC/patterns/accessibility.md
+    version: 1.0.0
+    sha256: 95cf5c67811c663631391e049e5a217b32ea2adac12e64d06429982f8da3e401
+  - path: FITPAC/patterns/api_design.md
+    version: 1.0.0
+    sha256: 51999fcd9f4f9e917d0587b324bd40b151a972d7200f32b221ad6d2043f711bc
+  - path: FITPAC/patterns/boundary_contracts.md
+    version: 1.0.0
+    sha256: b65fa35b5c5efa0c3bf88251ea9640ed010dc93b64c3ed9758e1607b8a63dcd5
+  - path: FITPAC/patterns/budgets.md
+    version: 1.0.0
+    sha256: faa5cde6df7dcdd6393b822909af502989ce4140c782db5656d0ff27a0d4939f
+  - path: FITPAC/patterns/compliance_audit.md
+    version: 1.0.0
+    sha256: 952f8adf49a455f8f582e7a26c3c883b58a51feeda3dcdff6f6f4112b67489ab
+  - path: FITPAC/patterns/configuration.md
+    version: 1.0.0
+    sha256: e6d15d4bc1f6d4a67ab23ef77aeeea993c5e60ee57c6319abf4962dd5d628f2e
+  - path: FITPAC/patterns/containment.md
+    version: 1.0.0
+    sha256: 852a559799faaa87db1df1eecd1735e76b2eff9d52fc99f087c06d4986be4441
+  - path: FITPAC/patterns/data_persistence.md
+    version: 1.0.0
+    sha256: fb6748a20c4aba5cd757ad713741a90a756853380b124135611ae7109524b0e7
+  - path: FITPAC/patterns/deployment.md
+    version: 1.0.0
+    sha256: a127ace2ccec5b3faecbabd8622e1bc7124d344dec74c53ad68bd6e5425c8578
+  - path: FITPAC/patterns/deps_trust.md
+    version: 1.0.0
+    sha256: 9d8130843fcc0120783dc50bf6674ee0b9f8dd8a46db2eed933f8f7437f90204
+  - path: FITPAC/patterns/distributed_systems.md
+    version: 1.0.0
+    sha256: c2c3c29b06e3cfe1c1ad393a58069728ff0df9e8cd8cdb2526c1a11fa194b912
+  - path: FITPAC/patterns/domain_ontology.md
+    version: 1.0.0
+    sha256: b30097142bb3608a8a93616c0c6db71d8192515c883e8da15a7a6af495aab774
+  - path: FITPAC/patterns/error_handling.md
+    version: 1.0.0
+    sha256: f339fe6cd1fcee6a57e5c8f44e97a912ec88da3dd494ebf14ca28a2fe1703597
+  - path: FITPAC/patterns/evidence_harness.md
+    version: 1.0.0
+    sha256: 07fde1372ab16bb5e45ae325bd58a3948503c289c405ef9050f31b616ebdff50
+  - path: FITPAC/patterns/governance.md
+    version: 1.0.0
+    sha256: 6cea2d35d722d0cfcc830a6aa49a04a96ead85274fb080933ddd186fdb955023
+  - path: FITPAC/patterns/internationalization.md
+    version: 1.0.0
+    sha256: b074a90150219965df1c2831a73543fe3d20bb652239de26d7ac85c4d2dc8fb8
+  - path: FITPAC/patterns/messaging.md
+    version: 1.0.0
+    sha256: 2fecceae410e779d9efb9a3c64191d89fc95f896a69c3caf44edbb9c4627c770
+  - path: FITPAC/patterns/ml_ai_systems.md
+    version: 1.0.0
+    sha256: b413a24e3a92376184fe1f8d2f611d47085a16cbec6a3ca5fb4157dcf090e2bd
+  - path: FITPAC/patterns/networking.md
+    version: 1.0.0
+    sha256: 85f09019231366118c30ac08e34d8972b89f0317ab464d51803b1eece00d0b75
+  - path: FITPAC/patterns/obs.md
+    version: 1.0.0
+    sha256: b68a1777589c2974ae33e38c709f774d6accbcadfe876c898c233099d5bb9ceb
+  - path: FITPAC/patterns/performance.md
+    version: 1.0.0
+    sha256: e65f9eea48a40e73f227ef0fe614f7f31932039fa0dc8c3f83b45df72cf560c6
+  - path: FITPAC/patterns/privacy_data_protection.md
+    version: 1.0.0
+    sha256: 2c329fb7662c7c7e831990177fd15085c2c69eb48c00c6bfe891544fa85d95d7
+  - path: FITPAC/patterns/resilience.md
+    version: 1.0.0
+    sha256: 51f781768147441d3d453406b07f21b4541b3499b149a3d68def929593ff2a21
+  - path: FITPAC/patterns/satisfaction_goals.md
+    version: 1.0.0
+    sha256: 0c759a51c078e2bd7fb7772483dc2512f19b145667c10bfe1a44a9491197d7bf
+  - path: FITPAC/patterns/schema_evolve.md
+    version: 1.0.0
+    sha256: df7b3fa5b200aaa11bc2d95f104684f08a767d2273ad5157dc4424c699ab3c5d
+  - path: FITPAC/patterns/security_trust.md
+    version: 1.0.0
+    sha256: 42f78ec6d1d83810f27d7858a94fbf132dddbd8497627c02d00be62d0048b0a2
+  - path: FITPAC/patterns/spec_code_roundtrip.md
+    version: 1.0.0
+    sha256: b0961a02d00f4ba3127d62ca676de7f0405241f7965fa6178225353157ef5ac9
+  - path: FITPAC/patterns/temporal.md
+    version: 1.0.0
+    sha256: 88ae6d482794eeead2ed01ec29dcc907455d6538db08ca5582fd3d910763e3b9
+  - path: FITPAC/patterns/ui_ux.md
+    version: 1.0.0
+    sha256: f2762f4cba1770167dcca25b6ce49d4d502ac0d845aeaa77fb02b820923bef3e
+  - path: FITPAC/patterns/workflow_orchestration.md
+    version: 1.0.0
+    sha256: ab1c1455cf0ce2f95a3de00fe5b301f09bc072e311b72c88376685cb2fc5248e
+extensions:
+- id: fitpac.prose_compiler
+  semver: 0.2.0
+  manifest: FITPAC/extensions/fitpac_prose_compiler/fitpac_prose_compiler_manifest.yaml
+  sha256: 29fd07373ac272d5d979787429b9c0bc4d1dbed723ad525b2a2a2db2d3112004
+  manifest_sha256: 0df83230f8612f89a93b3203e9be713b475d96defca6235b0a671316d4b6806a

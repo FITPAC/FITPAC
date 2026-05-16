@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/suggested_edge.schema.json",
+  "title": "fitpac.prose_compiler:suggested_edge",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["from_node_id", "to_node_id", "kind", "rationale"],
+  "properties": {
+    "from_node_id": { "type": "string", "minLength": 1 },
+    "to_node_id": { "type": "string", "minLength": 1 },
+    "kind": { "$ref": "common.definitions.json#/$defs/edgeKind" },
+    "rationale": { "type": "string" }
+  }
+}

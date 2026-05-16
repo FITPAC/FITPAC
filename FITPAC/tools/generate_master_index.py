@@ -70,6 +70,8 @@ KNOWN_PRECEDENCE_ORDER = [
     "ml_ai_systems",
     "workflow_orchestration",
     "internationalization",
+    # Extension packs (RFC-0006); also declared in extensions/extension_registry.yaml
+    "fitpac.prose_compiler",
 ]
 
 # Map from pattern filename (stem) to canonical module key for pattern_map.
@@ -356,6 +358,32 @@ def build_ambiguity_triggers(
     return out
 
 
+def load_extension_registry(fitpac_root: Path) -> dict[str, Any]:
+    """Load RFC-0006 extension entries to merge into master_index (never drop on regenerate)."""
+    path = fitpac_root / "extensions" / "extension_registry.yaml"
+    if not path.is_file() or not yaml:
+        return {}
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return data.get("extensions") or {}
+
+
+def merge_extension_registry(
+    pattern_map: dict[str, str],
+    precedence_hierarchy: dict[int, str],
+    ambiguity_triggers: dict[str, dict[str, Any]],
+    fitpac_root: Path,
+) -> None:
+    """Apply extension_registry.yaml in place (pattern_map, precedence, ambiguity_triggers)."""
+    for ext_id, spec in load_extension_registry(fitpac_root).items():
+        for module_key, rel_path in (spec.get("pattern_map") or {}).items():
+            pattern_map[module_key] = rel_path
+        ordinal = spec.get("precedence_ordinal")
+        if ordinal is not None:
+            precedence_hierarchy[int(ordinal)] = ext_id
+        for trigger_key, body in (spec.get("ambiguity_triggers") or {}).items():
+            ambiguity_triggers[trigger_key] = body
+
+
 def get_embedded_defaults() -> dict[str, Any]:
     """Return the full confidence_model, consultation_protocol, telemetry, audit_log to embed."""
     return {
@@ -524,6 +552,8 @@ def main() -> int:
     precedence_hierarchy = build_precedence_hierarchy(list(pattern_map.keys()), args.precedence_override)
     precedence_rank = {v: k for k, v in precedence_hierarchy.items()}
     ambiguity_triggers = build_ambiguity_triggers(module_rules, precedence_rank, pattern_map)
+    merge_extension_registry(pattern_map, precedence_hierarchy, ambiguity_triggers, fitpac_root)
+    precedence_hierarchy = dict(sorted(precedence_hierarchy.items(), key=lambda x: int(x[0])))
     defaults = get_embedded_defaults()
 
     out = {
@@ -548,6 +578,7 @@ def main() -> int:
         f.write("# PRECEDENCE: 1 = highest importance. When two patterns conflict, lower number wins.\n")
         f.write("# LOADING RULE: Load THIS file only. Fetch pattern fragments on demand.\n")
         f.write("# Regenerate with: python FITPAC/tools/generate_master_index.py\n")
+        f.write("# Extension modules: FITPAC/extensions/extension_registry.yaml (RFC-0006)\n")
         f.write("# ============================================================\n\n")
         yaml.dump(out, f, default_flow_style=False, allow_unicode=True, sort_keys=False, width=1000)
     print(f"Wrote {args.output}")

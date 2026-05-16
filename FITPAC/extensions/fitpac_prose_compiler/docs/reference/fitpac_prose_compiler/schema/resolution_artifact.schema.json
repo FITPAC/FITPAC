@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/resolution_artifact.schema.json",
+  "title": "fitpac.prose_compiler:resolution_artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "span",
+    "section_ref",
+    "doc_ref",
+    "partial_frame",
+    "failure_mode",
+    "resolution_status",
+    "resolver",
+    "resolved_by_ledger_id",
+    "suggested_edges"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "span": { "$ref": "common.definitions.json#/$defs/sourceSpan" },
+    "section_ref": { "type": "string" },
+    "doc_ref": { "$ref": "common.definitions.json#/$defs/docRef" },
+    "partial_frame": {
+      "description": "Nullable partial obligation_frame-shaped snapshot (may be incomplete).",
+      "oneOf": [{ "type": "null" }, { "type": "object", "additionalProperties": true }]
+    },
+    "failure_mode": { "type": "string", "minLength": 1 },
+    "resolution_status": {
+      "$ref": "common.definitions.json#/$defs/resolutionStatus"
+    },
+    "resolver": { "type": ["string", "null"] },
+    "resolved_by_ledger_id": { "type": ["string", "null"] },
+    "suggested_edges": {
+      "type": "array",
+      "items": { "$ref": "suggested_edge.schema.json" }
+    }
+  }
+}

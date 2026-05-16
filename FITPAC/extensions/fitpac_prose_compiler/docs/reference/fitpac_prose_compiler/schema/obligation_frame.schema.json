@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/obligation_frame.schema.json",
+  "title": "fitpac.prose_compiler:obligation_frame",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "doc_ref",
+    "source_span",
+    "actor",
+    "modal",
+    "action",
+    "object",
+    "condition",
+    "exception",
+    "scope",
+    "evidence_ref",
+    "anaphora_flags",
+    "split_from_span_ids"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "doc_ref": { "$ref": "common.definitions.json#/$defs/docRef" },
+    "source_span": { "$ref": "common.definitions.json#/$defs/sourceSpan" },
+    "clause_id": { "type": "string" },
+    "actor": {
+      "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+    },
+    "modal": { "type": "string" },
+    "action": {
+      "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+    },
+    "object": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "condition": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "exception": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "scope": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "evidence_ref": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "anaphora_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "split_from_span_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "parse_notes": { "type": "string" }
+  }
+}

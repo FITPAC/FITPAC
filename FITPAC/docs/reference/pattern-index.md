@@ -12,7 +12,17 @@ attribution_note: Attribution required under CC BY 4.0.
 
 The reference distribution ships with **30 canonical pattern modules** under `FITPAC/patterns/`; these are the normative default for the Reference Profile. Other patterns may be added (e.g. organizational packs); the canonical set is fixed for a given FITPAC version.
 
-For the **prose→spec** pipeline, each pattern is described by metadata in its YAML block (in `patterns/*.md`). Implementations may build a flat index from the pattern files with:
+### Extension pattern modules (RFC-0006)
+
+The **`fitpac.prose_compiler`** extension adds one RFC-0005 module for the **prose→primitives** pipeline:
+
+| Module key | File | Fragments |
+|------------|------|-----------|
+| `fitpac.prose_compiler` | `FITPAC/extensions/fitpac_prose_compiler/patterns/fitpac_prose_compiler.md` | `fitpac.prose_compiler.p1` (clause typing) … `fitpac.prose_compiler.p6` (resolution) |
+
+Registration: [`extension-registry.md`](extension-registry.md), [`extensions/extension_registry.yaml`](../../extensions/extension_registry.yaml). Resolve paths with `python3 FITPAC/tools/fitpac_prose_compiler_context.py`.
+
+For the **prose→spec** pipeline (core patterns), each pattern is described by metadata in its YAML block (in `patterns/*.md`). Implementations may build a flat index from the pattern files with:
 
 - **id** — e.g. `security.p1`, `ontology.p5`
 - **title** — Short name of the pattern

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/common.definitions.json",
+  "title": "fitpac.prose_compiler common definitions",
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "docRef": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Document identifier (URI, repo path, or stable doc id)."
+    },
+    "sourceSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["span_id", "start_offset", "end_offset"],
+      "properties": {
+        "span_id": { "type": "string", "minLength": 1 },
+        "start_offset": { "type": "integer", "minimum": 0 },
+        "end_offset": { "type": "integer", "minimum": 0 },
+        "section_path": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Heading trail / structural path."
+        }
+      }
+    },
+    "clauseRole": {
+      "type": "string",
+      "enum": [
+        "normative_rule",
+        "schema_description",
+        "header",
+        "example",
+        "rationale",
+        "document_metadata",
+        "unknown"
+      ]
+    },
+    "edgeKind": {
+      "type": "string",
+      "enum": [
+        "refines",
+        "details",
+        "exception_to",
+        "conditional_on",
+        "depends_on",
+        "conflicts_with",
+        "supersedes",
+        "evidenced_by",
+        "same_subject",
+        "same_scope",
+        "sequence_before"
+      ]
+    },
+    "bindingOutcomeKind": {
+      "type": "string",
+      "enum": ["bound", "rejected", "partial"]
+    },
+    "resolutionStatus": {
+      "type": "string",
+      "enum": ["open", "deferred", "resolved"]
+    },
+    "polarity": {
+      "type": "string",
+      "enum": ["affirm", "prohibit", "unknown"]
+    },
+    "normalizationStatus": {
+      "type": "string",
+      "enum": ["resolved", "unresolved"]
+    }
+  }
+}

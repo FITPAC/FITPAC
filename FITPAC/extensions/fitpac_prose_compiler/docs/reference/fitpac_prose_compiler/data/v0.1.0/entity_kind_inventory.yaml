@@ -1,0 +1,9 @@
+version: "0.1.0"
+description: "Entity / object kind inventory for object_kind field."
+rows:
+  - id: "entity_kind.api_response"
+    label: "HTTP API response payload"
+  - id: "entity_kind.secret"
+    label: "Secret / credential material"
+  - id: "entity_kind.log_record"
+    label: "Structured log record"

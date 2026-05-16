@@ -1,0 +1,10 @@
+id: "fitpac.prose_compiler.compiler_profile_v0"
+clause_confidence_min: 0.65
+allow_partial_spine_emission: false
+allow_auto_refines_edges: false
+auto_emittable_edge_kinds:
+  - exception_to
+  - conditional_on
+  - evidenced_by
+require_dag: false
+notes: "Default fitpac.prose_compiler compiler profile v0.1.0 (not an RFC-0002 FITPAC Profile)."

@@ -1,0 +1,12 @@
+version: "0.1.0"
+description: "Action sense inventory — lemmas map to stable ids (v0 minimal)."
+rows:
+  - id: "act.must_provide"
+    lemmas: ["must provide", "shall provide", "is required to provide"]
+    description: "Obligation to supply an artifact or interface."
+  - id: "act.must_not_expose"
+    lemmas: ["must not expose", "shall not disclose"]
+    description: "Prohibition on disclosure."
+  - id: "act.should_log"
+    lemmas: ["should log", "is recommended to log"]
+    description: "Non-normative logging recommendation (profile may still bind if tightened)."

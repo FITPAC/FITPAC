@@ -34,6 +34,10 @@ Field: `precedence_hierarchy`
 
 The `pattern_map` in the same file includes all pattern files under `patterns/`. The primitive spine (`00_primitive_spine.md`) is a separate reference document at the FITPAC root and is not listed in `pattern_map`. This value hierarchy is how FITPAC encodes organizational priorities into machine‑readable form.
 
+### Extension packs
+
+The reference distribution registers the **`fitpac.prose_compiler`** extension (RFC-0006) at precedence **31** with pattern module `extensions/fitpac_prose_compiler/patterns/fitpac_prose_compiler.md`. Pack manifest: `FITPAC/extensions/fitpac_prose_compiler/fitpac_prose_compiler_manifest.yaml`, registered from the repository root `fitpac_manifest.yaml` `extensions:` list.
+
 ---
 
 ## 3. Confidence model and drop conditions

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fitpac.local/fitpac.prose_compiler/schema/normalized_obligation.schema.json",
+  "title": "fitpac.prose_compiler:normalized_obligation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "frame_id",
+    "doc_ref",
+    "normalization_status",
+    "polarity",
+    "binding_slots"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "frame_id": { "type": "string", "minLength": 1 },
+    "doc_ref": { "$ref": "common.definitions.json#/$defs/docRef" },
+    "normalization_status": {
+      "$ref": "common.definitions.json#/$defs/normalizationStatus"
+    },
+    "polarity": { "$ref": "common.definitions.json#/$defs/polarity" },
+    "negation_span": { "$ref": "common.definitions.json#/$defs/sourceSpan" },
+    "resolution_artifact_id": { "type": "string" },
+    "binding_slots": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action_sense_id",
+        "actor_normalized",
+        "object_kind",
+        "object_entity_id"
+      ],
+      "properties": {
+        "action_sense_id": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ]
+        },
+        "actor_normalized": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ]
+        },
+        "object_kind": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ]
+        },
+        "object_entity_id": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ]
+        }
+      },
+      "description": "Binding-relevant fields are inventory row ids only; nulls require unresolved normalization or resolution path."
+    },
+    "non_binding_gloss": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action_lemma": { "type": "string" },
+        "object_gloss": { "type": "string" }
+      },
+      "description": "LLM or human gloss; MUST NOT be used as binding input."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+version: "0.1.0"
+description: "Actor inventory — obligated parties / system boundaries."
+rows:
+  - id: "actor.system"
+    label: "System / service under specification"
+  - id: "actor.operator"
+    label: "Human operator / maintainer"
+  - id: "actor.component.api_gateway"
+    label: "API gateway component class"

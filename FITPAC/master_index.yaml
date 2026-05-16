@@ -8,6 +8,7 @@
 # PRECEDENCE: 1 = highest importance. When two patterns conflict, lower number wins.
 # LOADING RULE: Load THIS file only. Fetch pattern fragments on demand.
 # Regenerate with: python FITPAC/tools/generate_master_index.py
+# Extension modules: FITPAC/extensions/extension_registry.yaml (RFC-0006)
 # ============================================================
 
 precedence_hierarchy:
@@ -41,6 +42,7 @@ precedence_hierarchy:
   28: ml_ai_systems
   29: workflow_orchestration
   30: internationalization
+  31: fitpac.prose_compiler
 pattern_map:
   accessibility: patterns/accessibility.md
   api_design: patterns/api_design.md
@@ -55,6 +57,7 @@ pattern_map:
   distributed_systems: patterns/distributed_systems.md
   error_handling: patterns/error_handling.md
   evidence_harness: patterns/evidence_harness.md
+  fitpac.prose_compiler: extensions/fitpac_prose_compiler/patterns/fitpac_prose_compiler.md
   governance: patterns/governance.md
   internationalization: patterns/internationalization.md
   messaging: patterns/messaging.md
@@ -289,6 +292,18 @@ ambiguity_triggers:
     - boundaries.p5
     - satisfaction.p2
     reason: Partial effect or side-effect outcome unclear.
+  fitpac_prose_compiler_low_clause_confidence:
+    patterns:
+    - fitpac.prose_compiler.p1
+    reason: Prose clause role unknown or below fitpac.prose_compiler compiler profile confidence threshold.
+  fitpac_prose_compiler_binding_rejected:
+    patterns:
+    - fitpac.prose_compiler.p4
+    reason: Normalized obligation failed static binding contract.
+  fitpac_prose_compiler_open_resolution:
+    patterns:
+    - fitpac.prose_compiler.p6
+    reason: Open resolution artifact blocks compiler-grade export.
 consultation_protocol:
   trigger:
   - Confidence drops at or below consult_threshold (0.90).
