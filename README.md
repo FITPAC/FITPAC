@@ -53,7 +53,7 @@ The primitives and control grammar are language-agnostic and expressed in plain 
 
 #### Expandable and Customizable
 
-Write your own patterns to solve specific coding challenges or define organizational intent. Customize your own hierarchy of importance (e.g., Security is more important than UI) to fit your domain needs.  FITPAC comes with 30 pattern modules by default (plus the primitive spine reference at `FITPAC/00_primitive_spine.md`), with the ability to expand to any arbitrary number of specialized patterns via namespacing.  Built in dot versioning for the ontological primitives, control grammar, and patterns ensures code compatibility even if the language is updated mid project.
+Write your own patterns to solve specific coding challenges or define organizational intent. Customize your own hierarchy of importance (e.g., Security is more important than UI) to fit your domain needs.  FITPAC comes with 30 pattern modules by default (plus the primitive spine reference at `FITPAC/00_primitive_spine.md`). The reference distribution also ships the namespaced extension **`fitpac.prose_compiler`** (RFC-0006) for prose→primitives compilation. Additional specialized patterns and extension packs use the same namespacing rules (`<namespace>.<module>`).  Built in dot versioning for the ontological primitives, control grammar, and patterns ensures code compatibility even if the language is updated mid project.
 
 ---
 
@@ -79,8 +79,9 @@ There are two ways to approach this repo:
     - Audit,
     - Pattern workflows).
   - Then, for protocol details and conformance:
-    - RFCs under `rfcs/` (normative standard), and  
-    - `FITPAC/docs/reference/*.md` (spec schema, master index, pattern index, trigger taxonomy, governance, profiles).
+    - RFCs under `rfcs/` (normative standard, including RFC-0006 for `fitpac.prose_compiler`), and  
+    - `FITPAC/docs/reference/*.md` (spec schema, master index, pattern index, extension registry, trigger taxonomy, governance, profiles).
+  - For **prose→primitives** (compiler pipeline): [`FITPAC/extensions/fitpac_prose_compiler/`](FITPAC/extensions/fitpac_prose_compiler/) and `python3 FITPAC/tools/fitpac_prose_compiler_context.py --json`.
 
 Everything in this repo is drag‑and‑drop: you can copy the `FITPAC/` directory and reference orchestrator files directly into an existing project.
 

@@ -1,5 +1,7 @@
 # Prose → primitives graph — operator runbook
 
+Part of the **`fitpac.prose_compiler`** namespaced extension (RFC-0006). For registry fields and discovery, see [Extension registry](../../../../docs/reference/extension-registry.md) or run `python3 FITPAC/tools/fitpac_prose_compiler_context.py --json` from the repository root.
+
 ## Inputs
 
 - Source document reference (`doc_ref`) and extracted spans with structural context.

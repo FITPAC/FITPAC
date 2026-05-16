@@ -56,5 +56,18 @@ This checklist summarizes the main conformance requirements from RFC-0001, RFC-0
 - [ ] Profiles use a deterministic precedence hierarchy and preserve the ambiguity protocol and round-trip semantics.
 - [ ] Experimental or non-standard profiles are clearly labeled and surfaced in audit logs.
 
+## 8. Extensions (optional — `fitpac.prose_compiler`)
+
+If your host implements the prose→primitives compiler pipeline (RFC-0006):
+
+- [ ] Extension pack is loaded from `FITPAC/extensions/fitpac_prose_compiler/` using pins in `fitpac_prose_compiler_manifest.yaml`.
+- [ ] Pattern fragments `fitpac.prose_compiler.p1`–`p6` are loaded on demand per RFC-0005.
+- [ ] Intermediate JSON validates against extension JSON Schemas; inventory ids match pinned YAML inventories.
+- [ ] Compiler profile `fitpac.prose_compiler.compiler_profile_v0` (or a documented successor) governs thresholds and committed-edge policy.
+
+Hosts that only implement prose→spec→code **MAY** omit this section.
+
+---
+
 If you can check all the relevant boxes above for your implementation and environment, you are likely **FITPAC-conformant**; for formal claims or certification, review the detailed conformance sections in RFC-0001 and RFC-0002.
 

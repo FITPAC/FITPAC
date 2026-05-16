@@ -1,6 +1,6 @@
 # Pattern languages
 
-The FITPAC distribution ships with **30 pattern modules** under `patterns/`. Each pattern module is a **pattern language** module: a set of **sequentially numbered rules** (p1, p2, p3, …). Every rule has a YAML metadata block with **required fields** (`triggers`, `requires_primitives`, `output_type`, `domain`, `category`) and optional fields (`produces`, `cross_refs`), plus prose sections drawn from a **small, closed control vocabulary** (`REQUIRE`, `RULE`, `EMIT`, `NOTE`). Pattern format and indexing are defined normatively in [docs/reference/pattern-index.md](../reference/pattern-index.md) and the spec‑level control grammar in [docs/reference/spec-schema.md](../reference/spec-schema.md).
+The FITPAC distribution ships with **30 pattern modules** under `patterns/`, plus one **namespaced extension** pattern module for prose→primitives compilation. Each pattern module is a **pattern language** module: a set of **sequentially numbered rules** (p1, p2, p3, …). Every rule has a YAML metadata block with **required fields** (`triggers`, `requires_primitives`, `output_type`, `domain`, `category`) and optional fields (`produces`, `cross_refs`), plus prose sections drawn from a **small, closed control vocabulary** (`REQUIRE`, `RULE`, `EMIT`, `NOTE`). Pattern format and indexing are defined normatively in [docs/reference/pattern-index.md](../reference/pattern-index.md) and the spec‑level control grammar in [docs/reference/spec-schema.md](../reference/spec-schema.md).
 
 The **primitive spine** (`00_primitive_spine.md`) is a separate reference document at the FITPAC root; it is not a pattern module and has no numbered rules. These 30 pattern modules are the **base pattern set** that ships with this repository. Implementations MAY layer in additional pattern packs from other sources and MAY define local pattern modules of their own, as long as they follow the same pattern format and naming rules (module keys, fragment IDs, triggers) described in the reference docs.
 
@@ -14,6 +14,16 @@ Pattern bodies follow the same control grammar as specs:
 - `NOTE` — Non‑normative explanation; safe to ignore for structural comparison.
 
 Implementations MUST NOT introduce new section labels that carry normative behavior without updating the reference docs; additional headings are allowed only for readability and must be treated as comments.
+
+## Extension pattern module (`fitpac.prose_compiler`)
+
+Registered at precedence **31** (RFC-0006). Not under `patterns/`; lives in the extension pack:
+
+| Module key | File | Fragments |
+|------------|------|-----------|
+| `fitpac.prose_compiler` | [`extensions/fitpac_prose_compiler/patterns/fitpac_prose_compiler.md`](../../extensions/fitpac_prose_compiler/patterns/fitpac_prose_compiler.md) | `fitpac.prose_compiler.p1` … `p6` (clause typing through resolution) |
+
+See [Extension registry](../reference/extension-registry.md) and the pack [README](../../extensions/fitpac_prose_compiler/README.md).
 
 ## Core modules (in master_index pattern_map)
 

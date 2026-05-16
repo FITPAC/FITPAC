@@ -105,6 +105,19 @@ If that is enough for you, you can stop here and just keep iterating:
 2. Let the orchestrator run again.
 3. Read the new run report.
 
+### 1.5 Optional: prose→primitives compiler (`fitpac.prose_compiler`)
+
+The core FITPAC loop above turns prose into a **structured spec** and then code. If you need a **reject-first compiler path** from natural-language clauses to inventory-backed obligations and primitive graphs (RFC-0006), use the namespaced extension:
+
+1. From the repository root, resolve pack paths:
+   ```bash
+   python3 FITPAC/tools/fitpac_prose_compiler_context.py --json
+   ```
+2. Read the pack [README](../extensions/fitpac_prose_compiler/README.md) and [operator runbook](../extensions/fitpac_prose_compiler/docs/guides/prose-to-primitives-pipeline.md).
+3. Validate artifacts with the extension CLI (see pack README).
+
+This pipeline is separate from reference orchestrators’ prose→spec loop; hosts may use one or both.
+
 ---
 
 ## 2. What the orchestrator actually does (for technical users)

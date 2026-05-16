@@ -42,11 +42,24 @@ FITPAC is not a new programming language or a set of code snippets. It is a way 
 
 By organizing codebases and agent workflows around these primitives and patterns, teams gain a **single, shared language** for behavior that can survive rewrites, new agent stacks, and infrastructure changes.
 
+## Extension packs (additive)
+
+Core FITPAC (RFC-0001–0005) defines 30 canonical pattern modules under `FITPAC/patterns/`. **Extension packs** add namespaced modules without changing spine primitives or core pattern hashes.
+
+The reference distribution registers one extension:
+
+| Extension id | RFC | Pack | Role |
+|--------------|-----|------|------|
+| `fitpac.prose_compiler` | [RFC-0006](../../rfcs/RFC-0006-FITPAC-prose-compiler-extension.md) | [`extensions/fitpac_prose_compiler/`](../extensions/fitpac_prose_compiler/) | Reject-first prose→primitives compiler (schemas, inventories, `fitpac.prose_compiler.p1`–`p6`) |
+
+Registration is in `fitpac_manifest.yaml` `extensions:`, [`extension_registry.yaml`](../extensions/extension_registry.yaml), and merged fields in `master_index.yaml`. See [Extension registry](reference/extension-registry.md).
+
 ## Key artifacts (in the repo)
 
 | Artifact | Role |
 |----------|------|
-| `master_index.yaml` | Entry point for coding agents: precedence (value hierarchy), drop conditions, confidence model, ambiguity triggers, pattern map, consultation protocol, event schema. Can be regenerated from the pattern set using the generator in `tools/generate_master_index.py`. |
-| `patterns/*.md` | Source of truth for pattern languages. |
+| `master_index.yaml` | Entry point for coding agents: precedence (value hierarchy), drop conditions, confidence model, ambiguity triggers, pattern map, consultation protocol, event schema. Can be regenerated from the pattern set using the generator in `tools/generate_master_index.py` (extensions are merged from `extension_registry.yaml`). |
+| `patterns/*.md` | Source of truth for core pattern languages (30 modules). |
+| `extensions/fitpac_prose_compiler/` | Normative pack for `fitpac.prose_compiler` (RFC-0006). |
 | [Spec schema](reference/spec-schema.md) | Logical schema for specs (entities, invariants, boundaries, goals, control grammar). |
 | [Prose to spec](guides/prose-to-spec.md), [Spec to code](guides/spec-to-code.md) | Guides for retrieval and consultation procedure. |

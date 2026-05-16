@@ -1,6 +1,8 @@
 # FITPAC `fitpac.prose_compiler` extension pack
 
-Additive extension: **prose → clause → obligation → normalization → binding → primitive graph → resolution artifacts** (RFC-0006).
+**Extension id:** `fitpac.prose_compiler` · **Pack semver:** 0.2.0 · **RFC:** [RFC-0006](../../rfcs/RFC-0006-FITPAC-prose-compiler-extension.md) (Proposed; shipped in the reference distribution)
+
+Additive extension: **prose → clause → obligation → normalization → binding → primitive graph → resolution artifacts**. Registered in `FITPAC/fitpac_manifest.yaml`, merged into `FITPAC/master_index.yaml` at precedence **31**, with pattern fragments `fitpac.prose_compiler.p1`–`p6`.
 
 Normative RFC: [`../../rfcs/RFC-0006-FITPAC-prose-compiler-extension.md`](../../rfcs/RFC-0006-FITPAC-prose-compiler-extension.md).
 

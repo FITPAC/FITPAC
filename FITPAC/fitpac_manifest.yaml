@@ -50,7 +50,7 @@ normative_references:
   - path: FITPAC/docs/reference/indexing-architecture.md
     sha256: 4e333b8e4f70a39edc9ad6846c180d4a146a34cd350e5765080fad94d1a2434b
   - path: FITPAC/docs/reference/extension-registry.md
-    sha256: a3f784afe8422354bcfc751dcafad90519b3c9124328cf2f1186f5b4893070e2
+    sha256: 20bb79a5b60ef31e0014ddabc707069b93645f8832e0acbbb11d1ab2a3521439
   - path: FITPAC/extensions/extension_registry.yaml
     sha256: 8799fcb0d30903fe0ebd1a7bea9f835606669be9c1cbe9e2774bad0a887c8b3f
   patterns:
